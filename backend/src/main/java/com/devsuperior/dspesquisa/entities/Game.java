@@ -20,15 +20,21 @@ import com.devsuperior.dspesquisa.entities.enums.Platform;
 public class Game implements Serializable{
 	private static final long serialVersionUID = 1L;
 
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String title;
 	private Platform platform;
 
+	
+
 	@ManyToOne
 	@JoinColumn(name = "genre_id")
 	private Genre genre;
+	
+
 	
 	@OneToMany(mappedBy = "game")
 	private List<Record> records = new ArrayList<>();
